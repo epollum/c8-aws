@@ -1,20 +1,21 @@
 global:
   ingress:
+    host: "a994982e200b54980a7aef8c9326a3a5-681926396.eu-central-1.elb.amazonaws.com"
     enabled: true
     tls:
-      enabled: false
+      enabled: true
   identity:
     auth:
-      publicIssuerUrl: "https://c8.dev.local/auth/realms/camunda-platform"
+      publicIssuerUrl: "https://a994982e200b54980a7aef8c9326a3a5-681926396.eu-central-1.elb.amazonaws.com/auth/realms/camunda-platform"
       operate:
         existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://c8.dev.local/operate"
+        redirectUrl: "https://a994982e200b54980a7aef8c9326a3a5-681926396.eu-central-1.elb.amazonaws.com/operate"
       tasklist:
         existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://c8.dev.local/tasklist"
+        redirectUrl: "https://a994982e200b54980a7aef8c9326a3a5-681926396.eu-central-1.elb.amazonaws.com/tasklist"
       optimize:
         existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://c8.dev.local/optimize"
+        redirectUrl: "https://a994982e200b54980a7aef8c9326a3a5-681926396.eu-central-1.elb.amazonaws.com/optimize"
 
 operate:
   contextPath: "/operate"
@@ -33,4 +34,4 @@ console:
  
 identity:
   contextPath: "/identity"
-  fullURL: "https://c8.dev.local/identity"
+  fullURL: "https://a994982e200b54980a7aef8c9326a3a5-681926396.eu-central-1.elb.amazonaws.com/identity"

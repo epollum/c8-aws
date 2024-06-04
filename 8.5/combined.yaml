@@ -1,6 +1,6 @@
 global:
   ingress:
-    host: "eabpm.de"
+    host: "emma.eabpm.de"
     enabled: true
     tls:
       enabled: true

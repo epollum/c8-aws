@@ -43,7 +43,7 @@ optimize:
     - name: LOGGING_LEVEL_IO_CAMUNDA_OPTIMIZE
   
 identity:
-  fullURL: "https://identity.c8.dev.local"
+  fullURL: "https://identity.eapbm.de"
   env:
     - name: IDENTITY_LOG_LEVEL
       value: DEBUG
@@ -82,44 +82,24 @@ webModeler:
       # Restapi.mail.smtpTlsEnabled if true, enforces TLS encryption for SMTP connections (using STARTTLS)
       smtpTlsEnabled: true
       # Restapi.mail.fromAddress defines the email address that will be displayed as the sender of emails sent by Web Modeler
-      fromAddress: "no-reply@camunda.com"
+      fromAddress: "no-reply@eapbm.de"
       # Restapi.mail.fromName defines the name that will be displayed as the sender of emails sent by Web Modeler
       fromName: "Camunda Platform"
     env:
       - name: ZEEBE_INSECURE_CONNECTION
         value: "true"
-      - name: ZEEBE_CA_CERTIFICATE_PATH
-        value: "/home/runner/dev.c8.separated.crt"
       - name: LOGGING_LEVEL_IO_GRPC
         value: TRACE
       - name: LOGGING_LEVEL_IO_CAMUNDA_MODELER
         trace: DEBUG
-    extraVolumes:
-      - name: dev-c8-separated-tls
-        secret:
-          secretName: dev-c8-separated-tls
-    extraVolumeMounts:
-      - name: dev-c8-separated-tls
-        mountPath: "/home/runner/dev.c8.separated.crt"
-        subPath: tls.crt
   webapp:
     env:
       - name: ZEEBE_SECURE_CONNECTION
         value: "false"
-      - name: ZEEBE_CLIENT_SSL_ROOT_CERTS_PATH
-        value: "/home/runner/dev.c8.separated.crt"
       - name: LOGGING_LEVEL_IO_GRPC
         value: TRACE
       - name: LOGGING_LEVEL_IO_CAMUNDA_MODELER
         trace: DEBUG
-    extraVolumes:
-      - name: dev-c8-separated-tls
-        secret:
-          secretName: dev-c8-separated-tls
-    extraVolumeMounts:
-      - name: dev-c8-separated-tls
-        mountPath: "/home/runner/dev.c8.separated.crt"
-        subPath: tls.crt
 
 postgresql:
   enabled: true

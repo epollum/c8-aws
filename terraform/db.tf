@@ -3,9 +3,10 @@ module "postgresql" {
   engine_version             = "15.4"
   auto_minor_version_upgrade = false
   cluster_name               = "emma-test-postgresql" # change "cluster-name" to your name
+  default_database_name      = "camunda"
 
   # Please supply your own secret values
-  username         = "admin"
+  username         = "emma"
   password         = "ChangeMe!213"
   vpc_id           = module.eks_cluster.vpc_id
   subnet_ids       = module.eks_cluster.private_subnet_ids

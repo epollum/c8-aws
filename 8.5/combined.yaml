@@ -9,16 +9,16 @@ global:
       kubernetes.io/tls-acme: "true"
   identity:
     auth:
-      publicIssuerUrl: "https://eabpm.de/auth/realms/camunda-platform"
+      publicIssuerUrl: "https://emma.eabpm.de/auth/realms/camunda-platform"
       operate:
         existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://eabpm.de/operate"
+        redirectUrl: "https://emma.eabpm.de/operate"
       tasklist:
         existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://eabpm.de/tasklist"
+        redirectUrl: "https://emma.eabpm.de/tasklist"
       optimize:
         existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://eabpm.de/optimize"
+        redirectUrl: "https://emma.eabpm.de/optimize"
 
 operate:
   contextPath: "/operate"
@@ -37,13 +37,13 @@ console:
  
 identity:
   contextPath: "/identity"
-  fullURL: "https://eabpm.de/identity"
+  fullURL: "https://emma.eabpm.de/identity"
 
 zeebeGateway:
   ingress:
     grpc:
       enabled: true
-      host: zeebe-grpc.eabpm.de
+      host: emma.zeebe-grpc.eabpm.de
       tls:
         enabled: true
         secretName: zeebe-c8-tls-grpc
@@ -52,7 +52,7 @@ zeebeGateway:
   ingress:
     rest:
       enabled: true
-      host: zeebe-rest.eabpm.de
+      host: emma.zeebe-rest.eabpm.de
       tls:
         enabled: true
         secretName: zeebe-c8-tls-rest

@@ -11,4 +11,4 @@ output "external_dns_arn" {
 output "postgres_endpoint" {
   value = module.postgresql.aurora_endpoint
   description = "The Postgres endpoint URL"
-}s
+}

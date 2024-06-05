@@ -1,7 +1,7 @@
 # Create AWS components
 terraform apply
 
-#Update KubeConfig context
+# Update KubeConfig context
 aws eks update-kubeconfig --name name-from-cluster.tf
 
 # Your standard region that you host AWS resources in

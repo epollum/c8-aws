@@ -7,8 +7,3 @@ output "external_dns_arn" {
   value = module.eks_cluster.external_dns_arn
   description = "The Amazon Resource Name (ARN) of the AWS IAM Roles for Service Account mapping for the external-dns"
 }
-
-output "postgres_endpoint" {
-  value = module.postgresql.aurora_endpoint
-  description = "The Postgres endpoint URL"
-}

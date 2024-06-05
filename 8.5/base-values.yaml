@@ -72,14 +72,12 @@ webModeler:
   restapi:
     mail:
       fromAddress: "no-reply@eapbm.de"
+      fromName: "Camunda Platform"
     env:
       - name: LOGGING_LEVEL_IO_GRPC
         value: TRACE
       - name: LOGGING_LEVEL_IO_CAMUNDA_MODELER
-        trace: DEBUG
-      fromAddress: "no-reply@eapbm.de"
-      # Restapi.mail.fromName defines the name that will be displayed as the sender of emails sent by Web Modeler
-      fromName: "Camunda Platform"
+        value: DEBUG
 
 postgresql:
   enabled: true

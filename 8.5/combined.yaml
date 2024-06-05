@@ -1,21 +1,24 @@
 global:
   ingress:
-    host: "a994982e200b54980a7aef8c9326a3a5-681926396.eu-central-1.elb.amazonaws.com"
+    host: "emma.eabpm.de"
     enabled: true
     tls:
       enabled: true
+      secretName: camunda-c8-tls
+    annotations:
+      kubernetes.io/tls-acme: "true"
   identity:
     auth:
-      publicIssuerUrl: "https://a994982e200b54980a7aef8c9326a3a5-681926396.eu-central-1.elb.amazonaws.com/auth/realms/camunda-platform"
+      publicIssuerUrl: "https://emma.eabpm.de/auth/realms/camunda-platform"
       operate:
         existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://a994982e200b54980a7aef8c9326a3a5-681926396.eu-central-1.elb.amazonaws.com/operate"
+        redirectUrl: "https://emma.eabpm.de/operate"
       tasklist:
         existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://a994982e200b54980a7aef8c9326a3a5-681926396.eu-central-1.elb.amazonaws.com/tasklist"
+        redirectUrl: "https://emma.eabpm.de/tasklist"
       optimize:
         existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://a994982e200b54980a7aef8c9326a3a5-681926396.eu-central-1.elb.amazonaws.com/optimize"
+        redirectUrl: "https://emma.eabpm.de/optimize"
 
 operate:
   contextPath: "/operate"
@@ -34,4 +37,24 @@ console:
  
 identity:
   contextPath: "/identity"
-  fullURL: "https://a994982e200b54980a7aef8c9326a3a5-681926396.eu-central-1.elb.amazonaws.com/identity"
+  fullURL: "https://emma.eabpm.de/identity"
+
+zeebeGateway:
+  ingress:
+    grpc:
+      enabled: true
+      host: emma.zeebe-grpc.eabpm.de
+      tls:
+        enabled: true
+        secretName: zeebe-c8-tls-grpc
+      annotations:
+        kubernetes.io/tls-acme: "true"
+  ingress:
+    rest:
+      enabled: true
+      host: emma.zeebe-rest.eabpm.de
+      tls:
+        enabled: true
+        secretName: zeebe-c8-tls-rest
+      annotations:
+        kubernetes.io/tls-acme: "true"

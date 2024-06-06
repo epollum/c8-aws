@@ -88,15 +88,9 @@ identityKeycloak:
     ingressClassName: "nginx"
     hostname: "e3.keycloak.eabpm.de"
     extraTls:
-<<<<<<< HEAD
       - secretName: "camunda-c8-tls-identity-keycloak"
         hosts:
           - e3.keycloak.eabpm.de
-=======
-      - hosts:
-        - keycloak.eabpm.de
-        - secretName: "camunda-c8-tls-identity-keycloak"
->>>>>>> 11c8024ad9175c0b9569645e347b2b5cbbceeffc
 
 webModeler:
   ingress:

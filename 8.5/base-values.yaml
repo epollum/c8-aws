@@ -28,6 +28,9 @@ zeebeGateway:
     - name: LOGGING_LEVEL_IO_CAMUNDA_GATEWAY
       value: DEBUG
 
+console:
+  enabled: true
+
 operate:
   env:
     - name: LOGGING_LEVEL_IO_CAMUNDA_OPERATE

@@ -1,29 +1,39 @@
 global:
   identity:
     auth:
-      publicIssuerUrl: "https://emma.keycloak.eabpm.de/auth/realms/camunda-platform"
+      publicIssuerUrl: "https://e3.keycloak.eabpm.de/auth/realms/camunda-platform"
       operate:
         existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://emma.operate.eabpm.de"
+        redirectUrl: "https://e3.operate.eabpm.de"
       tasklist:
         existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://emma.tasklist.eabpm.de"
+        redirectUrl: "https://e3.tasklist.eabpm.de"
       optimize:
         existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://emma.optimize.eabpm.de"
+        redirectUrl: "https://e3.optimize.eabpm.de"
       webModeler:
         existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://emma.modeler.eabpm.de"
+        redirectUrl: "https://e3.modeler.eabpm.de"
       console:
         existingSecret: SetThisToMakeHelmUpgradesEasy
-        redirectUrl: "https://emma.console.eabpm.de"
+        redirectUrl: "https://e3.console.eabpm.de"
+
+connectors:
+  ingress:
+    annotations:
+      kubernetes.io/tls-acme: "true"
+    enabled: true
+    host: "e3.connectors.eabpm.de"
+    tls:
+      enabled: true
+      secretName: "camunda-c8-tls-connectors"
   
 zeebeGateway:
   ingress:
     annotations:
       kubernetes.io/tls-acme: "true"
     enabled: true
-    host: "emma.zeebe.eabpm.de"
+    host: "e3.zeebe.eabpm.de"
     tls:
       enabled: true
       secretName: "camunda-c8-tls-zeebe"
@@ -33,7 +43,7 @@ operate:
     annotations:
       kubernetes.io/tls-acme: "true"
     enabled: true
-    host: "emma.operate.eabpm.de"
+    host: "e3.operate.eabpm.de"
     tls:
       enabled: true
       secretName: "camunda-c8-tls-operate"
@@ -43,7 +53,7 @@ tasklist:
     annotations:
       kubernetes.io/tls-acme: "true"
     enabled: true
-    host: "emma.tasklist.eabpm.de"
+    host: "e3.tasklist.eabpm.de"
     tls:
       enabled: true
       secretName: "camunda-c8-tls-tasklist"
@@ -53,18 +63,18 @@ optimize:
     annotations:
       kubernetes.io/tls-acme: "true"
     enabled: true
-    host: "emma.optimize.eabpm.de"
+    host: "e3.optimize.eabpm.de"
     tls:
       enabled: true
       secretName: "camunda-c8-tls-optimize"
   
 identity:
-  fullURL: "https://emma.identity.eabpm.de"
+  fullURL: "https://e3.identity.eabpm.de"
   ingress:
     annotations:
       kubernetes.io/tls-acme: "true"
     enabled: true
-    host: "emma.identity.eabpm.de"
+    host: "e3.identity.eabpm.de"
     tls:
       enabled: true
       secretName: "camunda-c8-tls-identity"
@@ -76,11 +86,11 @@ identityKeycloak:
     enabled: true
     tls: true
     ingressClassName: "nginx"
-    hostname: "emma.keycloak.eabpm.de"
+    hostname: "e3.keycloak.eabpm.de"
     extraTls:
-      - hosts:
-        - keycloak.eabpm.de
-        secretName: "camunda-c8-tls-identity-keycloak"
+      - secretName: "camunda-c8-tls-identity-keycloak"
+        hosts:
+          - e3.keycloak.eabpm.de
 
 webModeler:
   ingress:
@@ -88,12 +98,12 @@ webModeler:
       kubernetes.io/tls-acme: "true"
     enabled: true
     webapp:
-      host: "emma.modeler.eabpm.de"
+      host: "e3.modeler.eabpm.de"
       tls:
         enabled: true
         secretName: "camunda-c8-tls-web-modeler"
     websockets:
-      host: "emma.web-sockets.eabpm.de"
+      host: "e3.web-sockets.eabpm.de"
       tls:
         enabled: true
         secretName: "camunda-c8-tls-web-sockets"
@@ -103,7 +113,7 @@ console:
     annotations:
       kubernetes.io/tls-acme: "true"    
     enabled: true
-    host: "emma.console.eabpm.de"
+    host: "e3.console.eabpm.de"
     tls:
       enabled: true
       secretName: "camunda-c8-tls-console"

@@ -80,7 +80,7 @@ identityKeycloak:
     extraTls:
       - hosts:
         - keycloak.eabpm.de
-        secretName: "camunda-c8-tls-identity-keycloak"
+        - secretName: "camunda-c8-tls-identity-keycloak"
 
 webModeler:
   ingress:
